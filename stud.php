@@ -52,49 +52,29 @@
         </div>
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="accountant.php">
+            <a class="nav-link" href="stud.php">
               <i class="icon-box menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="icon-disc menu-icon"></i>
-              <span class="menu-title">Student</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="menuPages/addStu.php">Add Student</a></li>
-                <li class="nav-item"> <a class="nav-link" href="menuPages/students.php">All Students</a></li>
-              </ul>
-            </div>
-          </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="menuPages/addTea.php">
+            <a class="nav-link" href="menuPages_2/yourNotice.php">
               <i class="icon-plus menu-icon"></i>
-              <span class="menu-title">Add Teacher</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="menuPages/attendance.php">
-              <i class="icon-ribbon menu-icon"></i>
-              <span class="menu-title">Attendance</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-notice" aria-expanded="false" aria-controls="ui-notice">
-              <i class="icon-disc menu-icon"></i>
               <span class="menu-title">Notice</span>
-              <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-notice">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="menuPages/notice.php">Add Notice</a></li>
-                <li class="nav-item"> <a class="nav-link" href="menuPages/allNotice.php">All Notices</a></li>
-              </ul>
-            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menuPages_2/yourClass.php">
+              <i class="icon-ribbon menu-icon"></i>
+              <span class="menu-title">Class</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menuPages_2/yourSubject.php">
+              <i class="icon-command menu-icon"></i>
+              <span class="menu-title">Subject</span>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-exam" aria-expanded="false" aria-controls="ui-exam">
@@ -104,16 +84,10 @@
             </a>
             <div class="collapse" id="ui-exam">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="menuPages/exam.php">Schedule</a></li>
-                <li class="nav-item"> <a class="nav-link" href="menuPages/examRes.php">Exam Result</a></li>
+                <li class="nav-item"> <a class="nav-link" href="menuPages_2/yourSchedule.php">Schedule</a></li>
+                <li class="nav-item"> <a class="nav-link" href="menuPages_2/yourExam.php">Exam Result</a></li>
               </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="menuPages/fees.php">
-              <i class="icon-command menu-icon"></i>
-              <span class="menu-title">Fees</span>
-            </a>
           </li>
         </ul>
       </nav>

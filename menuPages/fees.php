@@ -2,6 +2,7 @@
 
 include "../component/connect.php";
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +22,8 @@ include "../component/connect.php";
   <link rel="stylesheet" href="../vendors/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars-o.css">
   <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars.css">
+  <link rel="stylesheet" href="../vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../css/style.css">
@@ -62,6 +65,7 @@ include "../component/connect.php";
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-disc menu-icon"></i>
@@ -75,6 +79,7 @@ include "../component/connect.php";
               </ul>
             </div>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="addTea.php">
               <i class="icon-plus menu-icon"></i>
@@ -125,90 +130,42 @@ include "../component/connect.php";
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="display-4 font-weight-bold text-dark text-center">Notice</h4>
-                  <form class="forms-sample" method="POST">
-                    <div class="form-group">
-                      <label for="exampleInputName1">Notice Author Name</label>
-                      <input type="text" class="form-control" id="exampleInputName1" name="author">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputName2">Title</label>
-                      <input type="text" class="form-control" id="exampleInputName2" name="title">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleTextarea1">Notice</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="6" style="font-size: 15px;" name="desc"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleTextarea1">Audiance</label>
-                     <select class="form-control" style="padding: 14px;" name="audiance">
-                      <option value="student">Student</option>
-                      <option value="teacher">Teacher</option>
-                      <option value="both">All</option>
-                     </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary mr-2" name="insert">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
-                  </form>
-                </div>
-              </div>
-            </div>
+            
           </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
 
+          <?php include "../component/footer.php"; ?>
+
+          <!-- partial -->
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-
-        <?php include "../component/footer.php"; ?>
-
-        <!-- partial -->
+        <!-- main-panel ends -->
       </div>
-      <!-- main-panel ends -->
+      <!-- page-body-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
+    <!-- container-scroller -->
 
-  <!-- base:js -->
-  <script src="../vendors/base/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="../js/off-canvas.js"></script>
-  <script src="../js/hoverable-collapse.js"></script>
-  <script src="../js/template.js"></script>
-  <!-- endinject -->
-  <!-- plugin js for this page -->
-  <script src="../vendors/chart.js/Chart.min.js"></script>
-  <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
-  <!-- End plugin js for this page -->
-  <!-- Custom js for this page-->
-  <script src="../js/dashboard.js"></script>
-  <!-- End custom js for this page-->
+    <!-- base:js -->
+    <script src="../vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="../js/off-canvas.js"></script>
+    <script src="../js/hoverable-collapse.js"></script>
+    <script src="../js/template.js"></script>
+    <!-- endinject -->
+    <!-- plugin js for this page -->
+    <script src="../vendors/chart.js/Chart.min.js"></script>
+    <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+    <script src="../vendors/select2/select2.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- Custom js for this page-->
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/select2.js"></script>
+    <!-- End custom js for this page-->
 
-  <?php
-
-   if(isset($_POST['insert'])){
-     
-     $author = $_POST['author'];
-     $title = $_POST['title'];
-     $desc = $_POST['desc'];
-     $audiance = $_POST['audiance'];
-
-     $sql = "INSERT INTO notice(nauthor,ntitle,ndesc,time,audiance) VALUES('$author','$title','$desc',now(),'$audiance')";
-     $res = mysqli_query($conn,$sql) or die("Notice cannot insert");
-
-     if($res){
-        echo "<script>window.location.href = 'allNotice.php'</script>";
-     }
-
-   }
-
-  ?>
 
 </body>
 

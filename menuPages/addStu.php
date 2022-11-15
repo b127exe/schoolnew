@@ -116,7 +116,7 @@ include "../component/connect.php";
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.php">
+            <a class="nav-link" href="fees.php">
               <i class="icon-command menu-icon"></i>
               <span class="menu-title">Fees</span>
             </a>

@@ -38,6 +38,13 @@ $row1 = mysqli_fetch_array($res1);
 </head>
 
 <body>
+    <!-- <div class='alert show'>
+          <span class='icon-command menu-icon'></span>
+          <span class='msg'>This is alert!!</span>
+          <span class='close-btn'>
+              <span class='icon-cross menu-icon'></span>
+          </span>
+         </div> -->
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
 
@@ -125,7 +132,7 @@ $row1 = mysqli_fetch_array($res1);
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.php">
+                        <a class="nav-link" href="fees.php">
                             <i class="icon-command menu-icon"></i>
                             <span class="menu-title">Fees</span>
                         </a>
@@ -168,7 +175,7 @@ $row1 = mysqli_fetch_array($res1);
                                             <label for="exampleInputDob1">Estimate Time</label>
                                             <input type="time" class="form-control" id="exampleInputDob1" name="eTime">
                                         </div>
-                                        <button type="submit" id="liveAlertBtn" class="btn btn-primary mr-2" name="insertExam">Submit</button>
+                                        <button type="submit" class="btn btn-primary mr-2" name="insertExam">Submit</button>
                                         <button class="btn btn-light"><a href="exam.php" style="text-decoration: none">Cancel</a></button>
                                     </form>
                                 </div>
@@ -208,6 +215,8 @@ $row1 = mysqli_fetch_array($res1);
     <!-- Custom js for this page-->
     <script src="../js/dashboard.js"></script>
     <script src="../js/select2.js"></script>
+    <!-- Jquery for alert -->
+    <script src="../js/alert.js"></script>
     <!-- End custom js for this page-->
 
 
@@ -223,14 +232,29 @@ $row1 = mysqli_fetch_array($res1);
 
         if ($res2) {
 
-            echo "<script>alert('Exam Added Successfully')</script>";
+            echo "<div class='alert show'>
+          <span class='icon-command menu-icon'></span>
+          <span class='msg'>Schedule added of $row1[fname]" . ' ' . "$row1[lname]</span>
+          <span class='close-btn'>
+              <span class='icon-cross menu-icon'></span>
+          </span>
+         </div>";
         }
     }
 
 
 
     ?>
-
+    <script>
+        // $("#liveAlertBtn").click(function(){
+        //     $(".alert").removeClass("hide");
+        //     $(".alert").addClass("show");
+        // });
+        $(".close-btn").click(function() {
+            $(".alert").addClass("hide");
+            $(".alert").removeClass("show");
+        });
+    </script>
 </body>
 
 </html>

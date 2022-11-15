@@ -2,8 +2,12 @@
 
 include "../component/connect.php";
 
+$reid = $_GET['eid'];
 $rsid = $_GET['sid'];
 
+$sql = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid WHERE sid = $rsid";
+$res1 = mysqli_query($conn, $sql);
+$row1 = mysqli_fetch_array($res1);
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +33,7 @@ $rsid = $_GET['sid'];
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/alert.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
@@ -121,7 +126,7 @@ $rsid = $_GET['sid'];
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.php">
+            <a class="nav-link" href="fees.php">
               <i class="icon-command menu-icon"></i>
               <span class="menu-title">Fees</span>
             </a>
@@ -142,19 +147,19 @@ $rsid = $_GET['sid'];
                   <form class="forms-sample" method="POST">
                     <div class="form-group">
                       <label for="exampleInputFirst1">Roll no</label>
-                      <input type="text" class="form-control" value="" disabled id="exampleInputFirst1">
+                      <input type="text" class="form-control" value="<?php echo $row1['rollno'];?>" disabled id="exampleInputFirst1">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFirst1">Name</label>
-                      <input type="text" class="form-control" value="" disabled id="exampleInputFirst1">
+                      <input type="text" class="form-control" value="<?php echo $row1['fname'].' '.$row1['lname'];?>" disabled id="exampleInputFirst1">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFirst1">Class</label>
-                      <input type="text" class="form-control" value="" disabled id="exampleInputFirst1">
+                      <input type="text" class="form-control" value="<?php echo $row1['cname'];?>" disabled id="exampleInputFirst1">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFirst1">Subject</label>
-                      <input type="text" class="form-control" value="" disabled id="exampleInputFirst1">
+                      <input type="text" class="form-control" value="<?php echo $row1['subject'];?>" disabled id="exampleInputFirst1">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputDob1">Marks</label>
@@ -174,6 +179,15 @@ $rsid = $_GET['sid'];
                               <option value="C">C</option>
                               <option value="D">D</option>
                               <option value="F">F</option>
+                            </select>
+                          </div>
+                        </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Exam Status</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" style="padding: 15px;" name="eStatus">
+                              <option value="Attend">Attend</option>
+                              <option value="Not Attend">Not Attend</option>
                             </select>
                           </div>
                         </div>
@@ -216,6 +230,8 @@ $rsid = $_GET['sid'];
   <!-- Custom js for this page-->
   <script src="../js/dashboard.js"></script>
   <script src="../js/select2.js"></script>
+   <!-- Jquery for alert -->
+   <script src="../js/alert.js"></script>
   <!-- End custom js for this page-->
 
   <?php
@@ -225,17 +241,37 @@ $rsid = $_GET['sid'];
      $marks = $_POST['marks'];
      $percent = $_POST['percent'];
      $grade = $_POST['grade'];
+     $status = $_POST['eStatus'];
 
-     $sql = "INSERT INTO exam_result(eid,marks,percentage,grade) VALUES($rsid,$marks,$percent,)";
+     $sql = "INSERT INTO exam_result(eid,marks,percentage,grade,exam_status) VALUES($reid,$marks,$percent,'$grade','$status')";
 
-     mysqli_query($conn,$sql);
+     $res2 = mysqli_query($conn,$sql);
+
+     if($res2){
+        echo "<div class='alert show'>
+          <span class='icon-command menu-icon'></span>
+          <span class='msg'>Result arrived of $row1[fname]".' '. "$row1[lname]</span>
+          <span class='close-btn'>
+              <span class='icon-cross menu-icon'></span>
+          </span>
+         </div>";
+     }
 
 
   }
 
   ?>
 
-
+<script>
+        // $("#liveAlertBtn").click(function(){
+        //     $(".alert").removeClass("hide");
+        //     $(".alert").addClass("show");
+        // });
+        $(".close-btn").click(function(){
+            $(".alert").addClass("hide");
+            $(".alert").removeClass("show");
+        });
+    </script>
 </body>
 
 </html>

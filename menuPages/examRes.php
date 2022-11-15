@@ -7,11 +7,11 @@ if(isset($_GET['searchStu'])){
   $list = $_GET['selectlist'];
   $search = $_GET['search'];
 
-  $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid WHERE $list LIKE '%$search%'";
+  $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid INNER JOIN exam AS e ON s.sid = e.sid WHERE $list LIKE '%$search%'";
 
 }
 else{
- $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid";
+ $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid INNER JOIN exam AS e ON s.sid = e.sid";
 }
 
 ?>
@@ -130,7 +130,7 @@ else{
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.php">
+            <a class="nav-link" href="fees.php">
               <i class="icon-command menu-icon"></i>
               <span class="menu-title">Fees</span>
             </a>
@@ -212,7 +212,7 @@ else{
                               <td>$row[fname] " . "$row[lname]</td>
                               <td>$row[cname]</td>
                               <td>$row[subject]</td>
-                              <td><a href='addExamRes.php?sid=$row[sid]' class='btn btn-primary'>Go to Result</a></td>
+                              <td><a href='addExamRes.php?sid=$row[sid]&eid=$row[eid]' class='btn btn-primary'>Go to Result</a></td>
                             </tr>
                           ";
 
