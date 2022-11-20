@@ -7,7 +7,7 @@ include "../component/connect.php";
 <html lang="en">
 
 <head>
-  <!-- Required meta tags --> 
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Regal Admin</title>
@@ -17,7 +17,7 @@ include "../component/connect.php";
   <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css"/>
+  <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css" />
   <link rel="stylesheet" href="../vendors/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars-o.css">
   <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars.css">
@@ -27,18 +27,19 @@ include "../component/connect.php";
   <!-- endinject -->
   <link rel="shortcut icon" href="../images/favicon.png" />
 </head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
 
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo" /></a>
       </div>
-      <?php include "../component/header.php";?>
+      <?php include "../component/header.php"; ?>
     </nav>
-      
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
@@ -48,14 +49,14 @@ include "../component/connect.php";
             <img src="../images/faces/face28.png">
           </div>
           <div class="user-name">
-              Edward Spencer
+            Edward Spencer
           </div>
           <div class="user-designation">
-              Developer
+            Developer
           </div>
         </div>
         <ul class="nav">
-        <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="../stud.php">
               <i class="icon-box menu-icon"></i>
               <span class="menu-title">Dashboard</span>
@@ -66,12 +67,6 @@ include "../component/connect.php";
             <a class="nav-link" href="yourNotice.php">
               <i class="icon-plus menu-icon"></i>
               <span class="menu-title">Notice</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="yourClass.php">
-              <i class="icon-ribbon menu-icon"></i>
-              <span class="menu-title">Class</span>
             </a>
           </li>
           <li class="nav-item">
@@ -98,130 +93,47 @@ include "../component/connect.php";
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-        <div class="row">
-              <div class="col-xl-4 grid-margin stretch-card">
+          <div class="row">
+            <div class="col-sm-12 mb-4 mb-xl-0">
+              <h4 class="font-weight-bold text-dark">Notice</h4>
+              <p class="font-weight-normal mb-2 text-muted"><?php echo date("F j, Y"); ?></p>
+            </div>
+          </div>
+          <div class="row">
+
+            <?php
+
+            $sql = "SELECT * FROM notice WHERE audiance = 'student' OR audiance = 'both'";
+            $res = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($res) > 0) {
+              while ($row = mysqli_fetch_assoc($res)) {
+            ?>
+                <div class="col-xl-6 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                        <div id="chart-legends-market-trend" class="chart-legends mt-1">
-                            </div>
-                            <h4 class="font-weight-bold text-dark">Title</h4>
-                            <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore placeat veniam dolores in quia totam omnis sunt eaque dolor esse expedita, sed molestias. Officiis expedita libero iusto vel numquam recusandae?</p>                       
-                            <div class="d-flex justify-content-between">
-                                <h4 class="card-title">Author : Bilal Khan</h4>
-                                <span>Issued time 1:09 PM</span>
-                            </div>
-                        </div>
-                  </div>
-              </div>
-              <div class="col-xl-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Traffic Sources</h4>
-                    <div class="row">
-                      <div class="col-sm-12">
-                          <div class="d-flex justify-content-between mt-2 text-dark mb-2">
-                              <div><span class="font-weight-bold">4453</span> Leads</div>
-                              <div>Goal: 2000</div>
-                            </div>
-                        <div class="progress progress-md grouped mb-2">
-                          <div class="progress-bar  bg-danger" role="progressbar" style="width: 30%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar  bg-primary" role="progressbar" style="width: 10%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-warning" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-light" role="progressbar" style="width: 25%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+                      <div id="chart-legends-market-trend" class="chart-legends mt-1">
                       </div>
-                      <div class="col-sm-12">
-                        <div class="traffic-source-legend">
-                          <div class="d-flex justify-content-between mb-1 mt-2">
-                            <div class="font-weight-bold">SOURCE</div>
-                            <div class="font-weight-bold">TOTAL</div>
-                          </div>
-                          <div class="d-flex justify-content-between legend-label">
-                            <div><span class="bg-danger"></span>Google Search</div>
-                            <div>30%</div>
-                          </div>
-                          <div class="d-flex justify-content-between legend-label">
-                            <div><span class="bg-info"></span>Social Media</div>
-                            <div>20%</div>
-                          </div>
-                          <div class="d-flex justify-content-between legend-label">
-                            <div><span class="bg-primary"></span>Referrals</div>
-                            <div>10%</div>
-                          </div>
-                          <div class="d-flex justify-content-between legend-label">
-                            <div><span class="bg-warning"></span>Organic Traffic</div>
-                            <div>10%</div>
-                          </div>
-                          <div class="d-flex justify-content-between legend-label">
-                            <div><span class="bg-success"></span>Google Search</div>
-                            <div>5%</div>
-                          </div>
-                          <div class="d-flex justify-content-between legend-label">
-                            <div><span class="bg-light"></span>Email Marketing</div>
-                            <div>25%</div>
-                          </div>
-                        </div>
-                        
+                      <h4 class="font-weight-bold text-dark"><?php echo $row['ntitle']?></h4>
+                      <p class="card-description mt-3"><?php echo $row['ndesc']?></p>
+                      <div class="d-flex justify-content-between" style="align-items: center;">
+                        <h4 class="card-title">Author : <?php echo $row['nauthor']?></h4>
+                        <span><?php echo $row['time']?></span>
                       </div>
-                    </div>  
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xl-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title mb-3">Recent Activity</h4>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="text-dark">
-                          <div class="d-flex pb-3 border-bottom justify-content-between">
-                            <div class="mr-3"><i class="mdi mdi-signal-cellular-outline icon-md"></i></div>
-                            <div class="font-weight-bold mr-sm-4">
-                              <div>Deposit has updated to Paid</div>
-                              <div class="text-muted font-weight-normal mt-1">32 Minutes Ago</div>
-                            </div>
-                            <div><h6 class="font-weight-bold text-info ml-sm-2">$325</h6></div>
-                          </div>
-                          <div class="d-flex pb-3 pt-3 border-bottom justify-content-between">
-                            <div class="mr-3"><i class="mdi mdi-signal-cellular-outline icon-md"></i></div>
-                            <div class="font-weight-bold mr-sm-4">
-                              <div>Your Withdrawal Proceeded</div>
-                              <div class="text-muted font-weight-normal mt-1">45 Minutes Ago</div>
-                            </div>
-                            <div><h6 class="font-weight-bold text-info ml-sm-2">$4987</h6></div>
-                          </div>
-                          <div class="d-flex pb-3 pt-3 border-bottom justify-content-between">
-                            <div class="mr-3"><i class="mdi mdi-signal-cellular-outline icon-md"></i></div>
-                            <div class="font-weight-bold mr-sm-4">
-                              <div>Deposit has updated to Paid                              </div>
-                              <div class="text-muted font-weight-normal mt-1">1 Days Ago</div>
-                            </div>
-                            <div><h6 class="font-weight-bold text-info ml-sm-2">$5391</h6></div>
-                          </div>
-                          <div class="d-flex pt-3 justify-content-between">
-                            <div class="mr-3"><i class="mdi mdi-signal-cellular-outline icon-md"></i></div>
-                            <div class="font-weight-bold mr-sm-4">
-                              <div>Deposit has updated to Paid</div>
-                              <div class="text-muted font-weight-normal mt-1">3 weeks Ago</div>
-                            </div>
-                            <div><h6 class="font-weight-bold text-info ml-sm-2">$264</h6></div>
-                          </div> 
-                        </div>
-                      </div>
-                    </div>  
-                  </div>
-                </div>
-              </div>
+            <?php
+              }
+            }
+            ?>
           </div>
-         
+
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-          
-        <?php include "../component/footer.php";?>
-        
+
+        <?php include "../component/footer.php"; ?>
+
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
@@ -249,12 +161,11 @@ include "../component/connect.php";
   <!-- End custom js for this page-->
 
   <?php
-  
- 
-  
+
+
+
   ?>
 
 </body>
 
 </html>
-

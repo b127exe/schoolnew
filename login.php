@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Regal Admin</title>
   <!-- base:css -->
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 
 <body>
@@ -27,20 +27,20 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="../../images/logo-dark.svg" alt="logo">
+                <img src="images/logo-dark.svg" alt="logo">
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
               <form class="pt-3" method="POST">
                 <div class="form-group">
-                  <label for="exampleInputEmail">Username</label>
+                  <label for="exampleInputEmail">Email</label>
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Email">
+                    <input type="email" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Email" name="uemail">
                   </div>
                 </div>
                 <div class="form-group">
@@ -51,14 +51,14 @@
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">                        
+                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" name="pass">                        
                   </div>
                 </div>
                 <div class="my-3">
-                  <button class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn">LOGIN</button>
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="login">LOGIN</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register-2.php" class="text-primary">Create</a>
+                  Don't have an account? <a href="register.php" class="text-primary">Create</a>
                 </div>
               </form>
             </div>
@@ -74,13 +74,21 @@
   </div>
   <!-- container-scroller -->
   <!-- base:js -->
-  <script src="../../vendors/base/vendor.bundle.base.js"></script>
+  <script src="vendors/base/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
   <!-- endinject -->
+
+  <?php
+  
+   if(isset($_POST['login'])){
+    
+   }
+  
+  ?>
 </body>
 
 </html>

@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+include "component/connect.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,16 +14,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Regal Admin</title>
   <!-- base:css -->
-  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 
 <body>
@@ -27,20 +36,20 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="../../images/logo-dark.svg" alt="logo">
+                <img src="images/logo-dark.svg" alt="logo">
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
-              <form class="pt-3">
+              <form class="pt-3" method="POST">
                 <div class="form-group">
-                  <label>Username</label>
+                  <label>Name</label>
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
                       <span class="input-group-text bg-transparent border-right-0">
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" placeholder="Username">
+                    <input type="text" class="form-control form-control-lg border-left-0" placeholder="Name" name="uname">
                   </div>
                 </div>
                 <div class="form-group">
@@ -51,20 +60,10 @@
                         <i class="mdi mdi-email-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" class="form-control form-control-lg border-left-0" placeholder="Email">
+                    <input type="email" class="form-control form-control-lg border-left-0" placeholder="Email" name="uemail">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label>Country</label>
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                    <option>Country</option>
-                    <option>United States of America</option>
-                    <option>United Kingdom</option>
-                    <option>India</option>
-                    <option>Germany</option>
-                    <option>Argentina</option>
-                  </select>
-                </div>
+                
                 <div class="form-group">
                   <label>Password</label>
                   <div class="input-group">
@@ -73,19 +72,28 @@
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">                        
+                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" name="pass">                        
                   </div>
                 </div>
+                <div class="form-group">
+                  <label>Role</label>
+                  <select class="form-control form-control-lg" id="exampleFormControlSelect2" style="padding: 15px;" name="role">
+                    <option value="student">Student</option>
+                    <option value="parent">Parent</option>
+                    <option value="admin">Administrator</option>
+                  </select>
+                </div>
+                
                 <div class="mb-4">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
-                      <input type="checkbox" class="form-check-input">
+                      <input type="checkbox" class="form-check-input" required>
                       I agree to all Terms & Conditions
                     </label>
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-info btn-lg font-weight-medium auth-form-btn" href="../../index.php">SIGN UP</a>
+                 <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="signUp">SIGN UP</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
                   Already have an account? <a href="login.php" class="text-primary">Login</a>
@@ -94,7 +102,7 @@
             </div>
           </div>
           <div class="col-lg-6 register-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020  All rights reserved.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2022  All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -104,13 +112,40 @@
   </div>
   <!-- container-scroller -->
   <!-- base:js -->
-  <script src="../../vendors/base/vendor.bundle.base.js"></script>
+  <script src="vendors/base/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="vendors/select2/select2.min.js"></script>
+  <script src="js/select2.js"></script>
+
   <!-- endinject -->
+
+  <?php
+  
+  // if(isset($_POST['signUp'])){
+
+  //    $name = $_POST['uname'];
+  //    $email = $_POST['uemail'];
+  //    $pass = md5($_POST['pass']);
+  //    $role = $_POST['role'];
+
+  //    $sql = "INSERT INTO user(uname,uemail,password,role) VALUES('$name','$email','$pass','$role')";
+
+  //    $res = mysqli_query($conn,$sql);
+
+  //    if($res){
+          
+  //      echo "<script>window.location.href = 'login.php'</script>";
+
+  //    }
+
+  // }
+  
+  
+  ?>
 </body>
 
 </html>

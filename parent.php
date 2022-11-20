@@ -52,36 +52,42 @@
         </div>
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="stud.php">
+            <a class="nav-link" href="parent.php">
               <i class="icon-box menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="menuPages_2/yourNotice.php">
+            <a class="nav-link" href="menuPages_3/parStudent.php">
               <i class="icon-plus menu-icon"></i>
-              <span class="menu-title">Notice</span>
+              <span class="menu-title">Your Child</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="menuPages_2/yourSubject.php">
-              <i class="icon-command menu-icon"></i>
-              <span class="menu-title">Subject</span>
+            <a class="nav-link" href="menuPages_3/parAttend.php">
+              <i class="icon-ribbon menu-icon"></i>
+              <span class="menu-title">Attendance</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-exam" aria-expanded="false" aria-controls="ui-exam">
               <i class="icon-disc menu-icon"></i>
-              <span class="menu-title">Exam</span>
+              <span class="menu-title">Schedule / Result</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-exam">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="menuPages_2/yourSchedule.php">Schedule</a></li>
-                <li class="nav-item"> <a class="nav-link" href="menuPages_2/yourExam.php">Exam Result</a></li>
+                <li class="nav-item"> <a class="nav-link" href="menuPages/exam.php">Schedule</a></li>
+                <li class="nav-item"> <a class="nav-link" href="menuPages/examRes.php">Exam Result</a></li>
               </ul>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menuPages/fees.php">
+              <i class="icon-command menu-icon"></i>
+              <span class="menu-title">Fees</span>
+            </a>
           </li>
         </ul>
       </nav>

@@ -242,7 +242,7 @@ else{
     <!-- container-scroller -->
 
     <!-- base:js -->
-    <script src="..echo "<script>alert('Exam Added Successfully')</script>";/vendors/base/vendor.bundle.base.js"></script>
+    <script src="/vendors/base/vendor.bundle.base.js "></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
