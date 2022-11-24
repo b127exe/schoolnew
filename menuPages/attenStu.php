@@ -138,7 +138,7 @@ if($res1){
                 <div class="card">
                     <div class="card-body">
                         <h3 style="font-size: 3rem;letter-spacing: 1px;font-family: sans-serif;"><?php echo $row['fname'] ." ". $row['lname'];?></h3>
-                        <p>bilal123@gmail.com</p>
+                        <p><?php echo $row['semail'];?></p>
                         <div class="row">
                         <div class="col-lg-5 grid-margin stretch-card">
                             <div class="card">
@@ -211,7 +211,6 @@ if($res1){
                               $sql2 = "SELECT * FROM attendance AS a INNER JOIN student AS s ON a.sid = s.sid INNER JOIN parent AS p ON s.pid = p.pid INNER JOIN class AS c ON s.cid = c.cid WHERE a.sid = $sid";
                               $res2 = mysqli_query($conn,$sql2);
                               while($row1 = mysqli_fetch_assoc($res2)){
-                                echo "";
                                      if($row1['status'] == "absent"){
                                         echo "<tr>
                                         <td>$row1[rollno]</td>

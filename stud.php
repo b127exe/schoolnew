@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+include "component/connect.php";
+
+$sid = $_GET['sid'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +50,10 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="images/faces/face28.png">
+            <img src="images/faces/face30.png">
           </div>
           <div class="user-name">
-            Edward Spencer
+            <?php echo $sid; ?>
           </div>
           <div class="user-designation">
             Developer
@@ -52,34 +61,57 @@
         </div>
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="stud.php">
-              <i class="icon-box menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
+            <?php
+            echo "<a class='nav-link' href='stud.php?sid=$sid'>
+            <i class='icon-box menu-icon'></i>
+            <span class='menu-title'>Dashboard</span>
+          </a>";
+            ?>
+            
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="menuPages_2/yourNotice.php">
-              <i class="icon-plus menu-icon"></i>
-              <span class="menu-title">Notice</span>
-            </a>
+            <?php
+            echo " <a class='nav-link' href='menuPages_2/yourNotice.php?sid=$sid'>
+            <i class='icon-plus menu-icon'></i>
+            <span class='menu-title'>Notice</span>
+          </a>";
+            ?>
+           
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="menuPages_2/yourSubject.php">
-              <i class="icon-command menu-icon"></i>
-              <span class="menu-title">Subject</span>
-            </a>
+            <?php
+
+            echo " <a class='nav-link' href='menuPages_2/yourAtten.php?sid=$sid'>
+           <i class='icon-command menu-icon'></i>
+           <span class='menu-title'>Attendance</span>
+           </a>";
+
+            ?>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-exam" aria-expanded="false" aria-controls="ui-exam">
-              <i class="icon-disc menu-icon"></i>
-              <span class="menu-title">Exam</span>
-              <i class="menu-arrow"></i>
+            <?php
+
+            echo " <a class='nav-link' href='menuPages_2/yourSubject.php?sid=$sid'>
+          <i class='icon-command menu-icon'></i>
+          <span class='menu-title'>Subject</span>
+          </a>";
+
+            ?>
+          </li>
+          <li class="nav-item">
+            <a class='nav-link' data-toggle='collapse' href='#ui-exam' aria-expanded='false' aria-controls='ui-exam'>
+              <i class='icon-disc menu-icon'></i>
+              <span class='menu-title'>Exam</span>
+              <i class='menu-arrow'></i>
             </a>
-            <div class="collapse" id="ui-exam">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="menuPages_2/yourSchedule.php">Schedule</a></li>
-                <li class="nav-item"> <a class="nav-link" href="menuPages_2/yourExam.php">Exam Result</a></li>
+            <div class='collapse' id='ui-exam'>
+              <ul class='nav flex-column sub-menu'>
+                <?php
+                echo "<li class='nav-item'> <a class='nav-link' href='menuPages_2/yourSchedule.php?sid=$sid'>Schedule</a></li>
+            <li class='nav-item'> <a class='nav-link' href='menuPages_2/yourExam.php?sid=$sid'>Exam Result</a></li>";
+                ?>
+
               </ul>
             </div>
           </li>

@@ -146,6 +146,10 @@ $row1 = mysqli_fetch_array($res1);
                   </p>
                   <form class="forms-sample" method="POST">
                     <div class="form-group">
+                      <label for="exampleInputFirst1">Semester</label>
+                      <input type="text" class="form-control" id="exampleInputFirst1" name="term">
+                    </div>
+                    <div class="form-group">
                       <label for="exampleInputFirst1">Roll no</label>
                       <input type="text" class="form-control" value="<?php echo $row1['rollno'];?>" disabled id="exampleInputFirst1">
                     </div>
@@ -242,8 +246,9 @@ $row1 = mysqli_fetch_array($res1);
      $percent = $_POST['percent'];
      $grade = $_POST['grade'];
      $status = $_POST['eStatus'];
+     $term = $_POST['term'];
 
-     $sql = "INSERT INTO exam_result(eid,marks,percentage,grade,exam_status) VALUES($reid,$marks,$percent,'$grade','$status')";
+     $sql = "INSERT INTO exam_result(eid,marks,percentage,grade,exam_status,term) VALUES($reid,$marks,$percent,'$grade','$status','$term')";
 
      $res2 = mysqli_query($conn,$sql);
 

@@ -2,15 +2,13 @@
 
 include "../component/connect.php";
 
-if(isset($_GET['searchStu'])){
+if (isset($_GET['searchStu'])) {
 
-   $list = $_GET['selectlist'];
-   $search = $_GET['search'];
+  $list = $_GET['selectlist'];
+  $search = $_GET['search'];
 
-   $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid WHERE $list LIKE '%$search%'";
-
-}
-else{
+  $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid WHERE $list LIKE '%$search%'";
+} else {
   $query = "SELECT * FROM student AS s INNER JOIN class AS c ON s.cid = c.cid INNER JOIN subject AS su ON s.subid = su.subid";
 }
 
@@ -76,7 +74,6 @@ else{
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-disc menu-icon"></i>
@@ -90,7 +87,6 @@ else{
               </ul>
             </div>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="addTea.php">
               <i class="icon-plus menu-icon"></i>
@@ -149,35 +145,35 @@ else{
                     Fill up the form
                   </p>
                   <form class="form-sample" method="GET">
-                      <div class="row">
-                          <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <div class="col-sm-9">
-                          <select class="form-control form-control-sm" required style="padding: 13px;" name="selectlist">
+                            <select class="form-control form-control-sm" required style="padding: 13px;" name="selectlist">
                               <option hidden>Select</option>
                               <option value="rollno">Roll no</option>
                               <option value="fname">First Name</option>
                               <option value="lname">Last Name</option>
                             </select>
+                          </div>
                         </div>
-                    </div>
-                </div>              
-                <div class="col-md-6">
-                <div class="form-group">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Searching..." required aria-label="Searching..." name="search">
-                      <div class="input-group-append">
-                        <button class="btn btn-sm btn-primary" type="submit" name="searchStu">Search</button>
                       </div>
-                      <div class="input-group-append">
-                        <button class="btn btn-sm btn-warning" type="button"><a href="exam.php" class="text-light">Reset</a></button>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Searching..." required aria-label="Searching..." name="search">
+                            <div class="input-group-append">
+                              <button class="btn btn-sm btn-primary" type="submit" name="searchStu">Search</button>
+                            </div>
+                            <div class="input-group-append">
+                              <button class="btn btn-sm btn-warning" type="button"><a href="exam.php" class="text-light">Reset</a></button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
 
-                </div>
-            </form>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -185,7 +181,7 @@ else{
           </div>
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
+              <div class="card">
                 <div class="card-body">
                   <h4 class="font-weight-bold text-dark">All Students</h4>
                   <p class="card-description"></p>
@@ -202,10 +198,10 @@ else{
                       </thead>
                       <tbody>
                         <?php
-                        
-                        $res = mysqli_query($conn,$query);
-                        while($row = mysqli_fetch_assoc($res)){
-                            
+
+                        $res = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_assoc($res)) {
+
                           echo "
                             <tr>
                               <td>$row[rollno]</td>
@@ -215,9 +211,8 @@ else{
                               <td><a href='addExam.php?sid=$row[sid]' class='btn btn-primary'>Add Exam</a></td>
                             </tr>
                           ";
-
                         }
-                        
+
                         ?>
                       </tbody>
                     </table>
@@ -227,39 +222,39 @@ else{
             </div>
           </div>
 
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-
-          <?php include "../component/footer.php"; ?>
-
-          <!-- partial -->
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
 
-    <!-- base:js -->
-    <script src="/vendors/base/vendor.bundle.base.js "></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="../js/off-canvas.js"></script>
-    <script src="../js/hoverable-collapse.js"></script>
-    <script src="../js/template.js"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <script src="../vendors/chart.js/Chart.min.js"></script>
-    <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
-    <script src="../vendors/select2/select2.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page-->
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/select2.js"></script>
-    <!-- End custom js for this page-->
+        <?php include "../component/footer.php"; ?>
+
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+   <!-- base:js -->
+   <script src="../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/hoverable-collapse.js"></script>
+  <script src="../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="../vendors/chart.js/Chart.min.js"></script>
+  <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <script src="../vendors/select2/select2.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/select2.js"></script>
+  <!-- End custom js for this page-->
 
 
 </body>

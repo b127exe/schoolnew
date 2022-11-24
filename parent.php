@@ -1,3 +1,8 @@
+<?php
+
+$pid = $_GET['pid'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +46,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="images/faces/face28.png">
+            <img src="images/faces/face32.png">
           </div>
           <div class="user-name">
             Edward Spencer
@@ -51,43 +56,64 @@
           </div>
         </div>
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="parent.php">
-              <i class="icon-box menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="menuPages_3/parStudent.php">
-              <i class="icon-plus menu-icon"></i>
-              <span class="menu-title">Your Child</span>
-            </a>
+        <li class="nav-item">
+            <?php
+            echo "<a class='nav-link' href='parent.php?pid=$pid'>
+            <i class='icon-box menu-icon'></i>
+            <span class='menu-title'>Dashboard</span>
+          </a>";
+            ?>
+            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="menuPages_3/parAttend.php">
-              <i class="icon-ribbon menu-icon"></i>
-              <span class="menu-title">Attendance</span>
-            </a>
+            <?php
+            echo " <a class='nav-link' href='menuPages_3/parNotice.php?pid=$pid'>
+            <i class='icon-box menu-icon'></i>
+            <span class='menu-title'>Notice</span>
+          </a>";
+            ?>
+           
+          </li>
+          <li class="nav-item">
+            <?php
+            echo " <a class='nav-link' href='menuPages_3/parAttend.php?pid=$pid'>
+            <i class='icon-plus menu-icon'></i>
+            <span class='menu-title'>Attendance</span>
+          </a>";
+            ?>
+          </li>
+          <li class="nav-item">
+            <?php
+            echo "<a class='nav-link' href='menuPages_3/parStudent.php?pid=$pid'>
+            <i class='icon-ribbon menu-icon'></i>
+            <span class='menu-title'>Details</span>
+          </a>";
+            ?>
+            
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-exam" aria-expanded="false" aria-controls="ui-exam">
               <i class="icon-disc menu-icon"></i>
-              <span class="menu-title">Schedule / Result</span>
+              <span class="menu-title">Exam Report</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-exam">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="menuPages/exam.php">Schedule</a></li>
-                <li class="nav-item"> <a class="nav-link" href="menuPages/examRes.php">Exam Result</a></li>
+                <?php
+                echo "<li class='nav-item'> <a class='nav-link' href='menuPages_3/parSchedule.php?pid=$pid'>Schedule</a></li>
+                <li class='nav-item'> <a class='nav-link' href='menuPages_3/parExamRes.php?pid=$pid'>Exam</a></li>";
+                ?>               
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="menuPages/fees.php">
-              <i class="icon-command menu-icon"></i>
-              <span class="menu-title">Fees</span>
-            </a>
+            <?php
+            echo "<a class='nav-link' href='menuPages_3/parFee.php?pid=$pid'>
+            <i class='icon-ribbon menu-icon'></i>
+            <span class='menu-title'>Fees</span>
+          </a>";
+            ?>
+            
           </li>
         </ul>
       </nav>
@@ -97,7 +123,7 @@
           <div class="row">
             <div class="col-sm-12 mb-4 mb-xl-0">
               <h4 class="font-weight-bold text-dark">Hi, welcome back!</h4>
-              <p class="font-weight-normal mb-2 text-muted">APRIL 1, 2019</p>
+              <p class="font-weight-normal mb-2 text-muted"><?php echo date("F j, Y"); ?></p>
             </div>
           </div>
 

@@ -2,6 +2,8 @@
 
 include "../component/connect.php";
 
+$sid = $_GET['sid'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +48,7 @@ include "../component/connect.php";
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="../images/faces/face28.png">
+            <img src="../images/faces/face30.png">
           </div>
           <div class="user-name">
             Edward Spencer
@@ -56,24 +58,40 @@ include "../component/connect.php";
           </div>
         </div>
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../stud.php">
-              <i class="icon-box menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="yourNotice.php">
-              <i class="icon-plus menu-icon"></i>
-              <span class="menu-title">Notice</span>
-            </a>
+        <li class="nav-item">
+            <?php
+            echo "<a class='nav-link' href='../stud.php?sid=$sid'>
+            <i class='icon-box menu-icon'></i>
+            <span class='menu-title'>Dashboard</span>
+          </a>";
+            ?>
+            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="yourSubject.php">
-              <i class="icon-command menu-icon"></i>
-              <span class="menu-title">Subject</span>
-            </a>
+            <?php
+            echo " <a class='nav-link' href='yourNotice.php?sid=$sid'>
+            <i class='icon-box menu-icon'></i>
+            <span class='menu-title'>Notice</span>
+          </a>";
+            ?>
+           
+          </li>
+          <li class="nav-item">
+            <?php
+            echo " <a class='nav-link' href='yourAtten.php?sid=$sid'>
+            <i class='icon-plus menu-icon'></i>
+            <span class='menu-title'>Attendance</span>
+          </a>";
+            ?>
+          </li>
+          <li class="nav-item">
+            <?php
+            echo "<a class='nav-link' href='yourSubject.php?sid=$sid'>
+            <i class='icon-ribbon menu-icon'></i>
+            <span class='menu-title'>Subject</span>
+          </a>";
+            ?>
+            
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-exam" aria-expanded="false" aria-controls="ui-exam">
@@ -83,8 +101,10 @@ include "../component/connect.php";
             </a>
             <div class="collapse" id="ui-exam">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="yourSchedule.php">Schedule</a></li>
-                <li class="nav-item"> <a class="nav-link" href="yourExam.php">Exam Result</a></li>
+                <?php
+                echo "<li class='nav-item'> <a class='nav-link' href='yourSchedule.php?sid=$sid'>Schedule</a></li>
+                <li class='nav-item'> <a class='nav-link' href='yourExam.php?sid=$sid'>Exam</a></li>";
+                ?>               
               </ul>
             </div>
           </li>

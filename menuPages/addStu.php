@@ -209,7 +209,7 @@ include "../component/connect.php";
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Contact</label>
                           <div class="col-sm-9">
-                            <input type="number" class="form-control" name="phone" />
+                            <input type="number" class="form-control" name="contact" />
                           </div>
                         </div>
                       </div>
@@ -388,7 +388,7 @@ include "../component/connect.php";
        //For Parent
 
       $pname = $_POST['pname'];
-      $phone = $_POST['phone'];
+      $phone = $_POST['contact'];
       $job = $_POST['job'];
       $nic =  $_POST['nic'];
       $pemail = $_POST['pemail'];
