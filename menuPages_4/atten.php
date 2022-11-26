@@ -2,8 +2,20 @@
 
 include "../component/connect.php";
 
-$pid = $_GET['pid'];
+$tid = $_GET['tid'];
 
+
+if(isset($_GET['searchStu'])){
+
+    $list = $_GET['selectlist'];
+    $search = $_GET['search'];
+  
+    $query = "SELECT * FROM student AS s INNER JOIN parent AS p ON s.pid = p.pid WHERE $list LIKE '%$search%'";
+  
+  }
+  else{
+    $query = "SELECT *  FROM student AS s INNER JOIN parent AS p  ON s.pid = p.pid";
+  }
 
 ?>
 <!DOCTYPE html>
@@ -59,27 +71,27 @@ $pid = $_GET['pid'];
           </div>
         </div>
         <ul class="nav">
-          <li class="nav-item">
+        <li class="nav-item">
             <?php
-            echo "<a class='nav-link' href='../parent.php?pid=$pid'>
+            echo "<a class='nav-link' href='../teacher.php?tid=$tid'>
             <i class='icon-box menu-icon'></i>
             <span class='menu-title'>Dashboard</span>
           </a>";
             ?>
-
+            
           </li>
           <li class="nav-item">
             <?php
-            echo " <a class='nav-link' href='parNotice.php?pid=$pid'>
+            echo " <a class='nav-link' href='teaNotice.php?tid=$tid'>
             <i class='icon-box menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
-
+           
           </li>
           <li class="nav-item">
             <?php
-            echo " <a class='nav-link' href='parAttend.php?pid=$pid'>
+            echo " <a class='nav-link' href='atten.php?tid=$tid'>
             <i class='icon-plus menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
@@ -87,56 +99,103 @@ $pid = $_GET['pid'];
           </li>
           <li class="nav-item">
             <?php
-            echo "<a class='nav-link' href='parStudent.php?pid=$pid'>
+            echo "<a class='nav-link' href='teaAddStu.php?tid=$tid'>
+            <i class='icon-ribbon menu-icon'></i>
+            <span class='menu-title'>Add Student</span>
+          </a>";
+            ?>
+            
+          </li>
+          <li class="nav-item">
+            <?php
+            echo "<a class='nav-link' href='tea.php?tid=$tid'>
             <i class='icon-ribbon menu-icon'></i>
             <span class='menu-title'>Details</span>
           </a>";
             ?>
-
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-exam" aria-expanded="false" aria-controls="ui-exam">
-              <i class="icon-disc menu-icon"></i>
-              <span class="menu-title">Exam Report</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-exam">
-              <ul class="nav flex-column sub-menu">
-                <?php
-                echo "<li class='nav-item'> <a class='nav-link' href='parSchedule.php?pid=$pid'>Schedule</a></li>
-                <li class='nav-item'> <a class='nav-link' href='parExamRes.php?pid=$pid'>Exam</a></li>";
-                ?>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <?php
-            echo "<a class='nav-link' href='parFee.php?pid=$pid'>
-            <i class='icon-ribbon menu-icon'></i>
-            <span class='menu-title'>Fees</span>
-          </a>";
-            ?>
-
+            
           </li>
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-sm-12 mb-4 mb-xl-0">
-              <h4 class="font-weight-bold text-dark">All Details</h4>
-              <p class="font-weight-normal mb-2 text-muted"><?php echo date("F j, Y"); ?></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
+        <div class="row">
+          <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
+                  <h4 class="display-4 font-weight-bold text-dark text-center">Attendance</h4>
+                  <p class="card-description text-center">
+                    Find your record and mark your attendance
+                  </p>
+                  <form class="form-sample" method="GET">
+                      <div class="row">
+                          <div class="col-md-6">
+                        <div class="form-group row">
+                          <div class="col-sm-9">
+                          <select class="form-control form-control-sm" required style="padding: 13px;" name="selectlist">
+                              <option hidden>Select</option>
+                              <option value="rollno">Roll no</option>
+                              <option value="fname">First Name</option>
+                              <option value="lname">Last Name</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>              
+                <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Searching..." required aria-label="Searching..." name="search">
+                      <div class="input-group-append">
+                        <button class="btn btn-sm btn-primary" type="submit" name="searchStu">Search</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                </div>
+            </form>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Roll No</th>
+                          <th>Name</th>
+                          <th>Guadian</th>
+                          <th>Gender</th>
+                          <th>Dob</th>
+                          <th>Email</th>
+                          <th>Attendance</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                          $result = mysqli_query($conn , $query);
+                          if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                              echo "<tr>
+                                      <td>$row[rollno]</td>
+                                      <td>$row[fname] "."$row[lname]</td>
+                                      <td>$row[name]</td>
+                                      <td>$row[sgender]</td>
+                                      <td>$row[dob]</td>
+                                      <td>$row[semail]</td>
+                                      <td><a href='studAtten.php?sid=$row[sid]&tid=$tid' class='btn btn-secondary btn-rounded btn-sm'>Record</a><td>
+                                     </tr>";
+                            }
+                          }
+                          else{
+                            echo "<h2 class='display1 text-center'>No record found!</h2>";
+                          }
+                        ?>                      
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+         
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
@@ -168,6 +227,13 @@ $pid = $_GET['pid'];
   <!-- Custom js for this page-->
   <script src="../js/dashboard.js"></script>
   <!-- End custom js for this page-->
+
+  <?php
+
+
+
+  ?>
+
 </body>
 
 </html>

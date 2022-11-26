@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2022 at 11:41 AM
+-- Generation Time: Nov 26, 2022 at 09:30 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -51,7 +51,10 @@ INSERT INTO `attendance` (`aid`, `sid`, `status`, `date`) VALUES
 (10, 1, 'leave', '2022-11-21'),
 (11, 1, 'absent', '2022-11-19'),
 (12, 2, 'present', '2022-11-21'),
-(13, 2, 'present', '2022-11-19');
+(13, 2, 'present', '2022-11-19'),
+(14, 4, 'present', '2022-11-26'),
+(15, 4, 'absent', '2022-11-25'),
+(16, 2, 'present', '2022-11-26');
 
 -- --------------------------------------------------------
 
@@ -74,7 +77,8 @@ INSERT INTO `class` (`cid`, `cname`, `section`) VALUES
 (2, 'Class 11', 2),
 (3, 'Class 10', 2),
 (4, 'Class 10', 2),
-(5, 'Class 11', 1);
+(5, 'Class 11', 1),
+(6, 'Class 10', 2);
 
 -- --------------------------------------------------------
 
@@ -118,7 +122,8 @@ CREATE TABLE `exam_result` (
 --
 
 INSERT INTO `exam_result` (`erid`, `eid`, `marks`, `grade`, `percentage`, `exam_status`, `term`) VALUES
-(4, 16, 890, 'A+', 80, 'Attend', '1st Semester');
+(4, 16, 890, 'A+', 80, 'Attend', '1st Semester'),
+(5, 17, 780, 'A', 75, 'Attend', '1st Semester');
 
 -- --------------------------------------------------------
 
@@ -140,20 +145,8 @@ INSERT INTO `fees` (`fid`, `amount`) VALUES
 (7, 3400),
 (8, 5500),
 (9, 5600),
-(10, 3400);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fees_detail`
---
-
-CREATE TABLE `fees_detail` (
-  `fsid` int(11) NOT NULL,
-  `fid` int(11) NOT NULL,
-  `fee_month` varchar(30) NOT NULL,
-  `fee_status` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(10, 3400),
+(11, 5600);
 
 -- --------------------------------------------------------
 
@@ -203,7 +196,8 @@ INSERT INTO `parent` (`pid`, `name`, `phone`, `job`, `nic`, `email`) VALUES
 (3, 'Ikram Ahmed', '0345667289', 'Toyota Office Manager', '1620293252966', 'ikran345@gmail.com'),
 (4, 'Mazhar', '03456672892', 'Sublime Architecturist', '1620293252954', 'mazhar432@gmail.com'),
 (5, 'zahid', '03457738292', 'Office Work', '1620293252934', 'zahid123@gmail.com'),
-(6, 'Raees ahmed', '03453358365', 'Sublime Architecturist', '1620293252933', 'raees456@gmail.com');
+(6, 'Raees ahmed', '03453358365', 'Sublime Architecturist', '1620293252933', 'raees456@gmail.com'),
+(7, 'Ata-ur-rehman', '3564478292', 'Sublime Architecturist', '1620293252966', 'rehman345@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -254,7 +248,8 @@ INSERT INTO `student` (`sid`, `fname`, `lname`, `dob`, `address`, `pid`, `sgende
 (2, 'Zunaira', 'Ahmed', '2005-04-20', 'Hno T-340 Street 10', 3, 'Female', 2, 'zunaira123@gmail.com', 3, 'Student1345338'),
 (3, 'Ammar', 'Sheikh', '2004-06-22', 'Hno T-567 Street 01 korangi 3/1', 4, 'Male', 3, 'ammar543@gmail.com', 4, 'Student1345356'),
 (4, 'Ahmed', 'Khan', '2005-06-20', 'Hno Y-392 Street 04', 5, 'Male', 4, 'ahmed123@gmail.com', 5, 'Student1338466'),
-(5, 'Azhar', 'Rumaan', '0000-00-00', 'Hno N-392 Street 90', 6, 'Male', 5, 'azhar123@gmail.com', 6, 'Student1338466');
+(5, 'Azhar', 'Rumaan', '0000-00-00', 'Hno N-392 Street 90', 6, 'Male', 5, 'azhar123@gmail.com', 6, 'Student1338466'),
+(6, 'Malik', 'Saif', '2004-12-04', 'Hno N-378 Street 10', 7, 'Male', 6, 'malik345@gmail.com', 7, 'Student1345775');
 
 -- --------------------------------------------------------
 
@@ -279,7 +274,8 @@ INSERT INTO `subject` (`subid`, `subject`, `detail`, `tid`, `fid`) VALUES
 (3, 'Biology', 'Fundamental areas of biology is the study of exper', 8, 7),
 (4, 'Computer Science (Python)', 'Fundamental areas of computer science Python is th', 10, 8),
 (5, 'Chemistry', 'Fundamental areas of biology is the study of exper', 10, 9),
-(6, 'Biology', 'Fundamental areas of biology is the study of exper', 3, 10);
+(6, 'Biology', 'Fundamental areas of biology is the study of exper', 3, 10),
+(7, 'Chemistry', 'Fundamental areas of Chemistry is the study of experiment.', 8, 11);
 
 -- --------------------------------------------------------
 
@@ -305,24 +301,10 @@ CREATE TABLE `teacher` (
 
 INSERT INTO `teacher` (`tid`, `t_fname`, `t_lname`, `t_address`, `phone`, `dob`, `education`, `gender`, `email`) VALUES
 (1, 'Farhan', 'Kazmi', 'Hno N-345 Street 09', '03456672892', '1992-11-09', 'IT Computer Science', 'Male', 'farhan123@gmail.com'),
-(3, 'Rana', 'Arsalan', 'Hno U-120 Street 20', '03167738292', '1992-12-04', 'UI/UX Designer', 'Male', 'rana345@gmail.com'),
+(3, 'Rana', 'Arsalan', 'Hno U-120 Street 20', '03167738252', '1992-12-04', 'UI/UX Designer on FIGMA', 'Male', 'rana345@gmail.com'),
 (8, 'Muniba', 'Ahmed', 'Hno T-560 Street 01', '03456628292', '1999-04-22', 'Masters in Mathemetics', 'Female', 'muniba123@gmail.com'),
 (9, 'Nickson', 'Pervaiz', 'Hno T-340 Street 90', '03456628262', '1991-02-13', 'Masters in Algorithm 2', 'Male', 'nickson123@gmail.com'),
 (10, 'Nabeel', 'Saleem', 'Hno Z-340 Street 06', '0364228292', '1993-10-22', 'Masters in Algorithm 1', 'Male', 'nabeel345@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `uid` int(11) NOT NULL,
-  `uname` varchar(30) NOT NULL,
-  `uemail` varchar(30) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `role` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -361,13 +343,6 @@ ALTER TABLE `exam_result`
 --
 ALTER TABLE `fees`
   ADD PRIMARY KEY (`fid`);
-
---
--- Indexes for table `fees_detail`
---
-ALTER TABLE `fees_detail`
-  ADD PRIMARY KEY (`fsid`),
-  ADD KEY `fid` (`fid`);
 
 --
 -- Indexes for table `notice`
@@ -411,12 +386,6 @@ ALTER TABLE `teacher`
   ADD PRIMARY KEY (`tid`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`uid`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -424,13 +393,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `exam`
@@ -442,19 +411,13 @@ ALTER TABLE `exam`
 -- AUTO_INCREMENT for table `exam_result`
 --
 ALTER TABLE `exam_result`
-  MODIFY `erid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `erid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `fees`
 --
 ALTER TABLE `fees`
-  MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `fees_detail`
---
-ALTER TABLE `fees_detail`
-  MODIFY `fsid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `notice`
@@ -466,7 +429,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `parent`
 --
 ALTER TABLE `parent`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `section`
@@ -478,25 +441,19 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
   MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -525,12 +482,6 @@ ALTER TABLE `exam`
 --
 ALTER TABLE `exam_result`
   ADD CONSTRAINT `exam_result_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `exam` (`eid`);
-
---
--- Constraints for table `fees_detail`
---
-ALTER TABLE `fees_detail`
-  ADD CONSTRAINT `fees_detail_ibfk_1` FOREIGN KEY (`fid`) REFERENCES `fees` (`fid`);
 
 --
 -- Constraints for table `student`

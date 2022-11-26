@@ -8,7 +8,6 @@ $sql = "SELECT * FROM exam_result AS es INNER JOIN exam AS e ON es.eid = e.eid I
 
 $res = mysqli_query($conn,$sql);
 
-$row = mysqli_fetch_array($res);
 
 ?>
 <!DOCTYPE html>
@@ -129,38 +128,51 @@ $row = mysqli_fetch_array($res);
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                   <div class="card-body">
-                     <div class="table-resposive">
+                     <div class="table-responsive">
                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th>Semester</th>
-                              <th>Roll no</th>
-                              <th>Name</th>
-                              <th>Guardian</th>
-                              <th>Class</th>
-                              <th>Section</th>
-                              <th>Subject</th>
-                              <th>Attandance</th>
-                              <th>Marks</th>
-                              <th>Percentage</th>
-                              <th>Grade</th>
-                            </tr>
-                          </thead>
-                          <tbody>
+                       <?php
+                        if(mysqli_num_rows($res)>0){
+                          while($row = mysqli_fetch_assoc($res)){
+                             echo "<thead>
                              <tr>
-                              <td><?php echo $row['term']?></td>
-                              <td><?php echo $row['rollno']?></td>
-                              <td><?php echo $row['fname']." ".$row['lname']?></td>
-                              <td><?php echo $row['name']?></td>
-                              <td><?php echo $row['cname']?></td>
-                              <td><?php echo $row['sec_name']?></td>
-                              <td><?php echo $row['subject']?></td>
-                              <td><?php echo $row['exam_status']?></td>
-                              <td><?php echo $row['marks']?></td>
-                              <td><?php echo $row['percentage']?></td>
-                              <td><?php echo $row['grade']?></td>
+                               <th>Semester</th>
+                               <th>Roll no</th>
+                               <th>Name</th>
+                               <th>Guardian</th>
+                               <th>Class</th>
+                               <th>Section</th>
+                               <th>Subject</th>
+                               <th>Attandance</th>
+                               <th>Marks</th>
+                               <th>Percentage</th>
+                               <th>Grade</th>
                              </tr>
-                          </tbody>
+                           </thead>
+                           <tbody>
+                              <tr>
+                               <td>$row[term]</td>
+                               <td>$row[rollno]</td>
+                               <td>$row[fname]"." "."$row[lname]</td>
+                               <td>$row[name]</td>
+                               <td>$row[cname]</td>
+                               <td>$row[sec_name]</td>
+                               <td>$row[subject]</td>
+                               <td>$row[exam_status]</td>
+                               <td>$row[marks]</td>
+                               <td>$row[percentage]</td>
+                               <td>$row[grade]</td>
+                               </tr>
+                               </tbody>";
+                          }
+                        }
+                        else{
+                          echo "<div class='d-flex flex-row align-items-center justify-content-center'>
+                          <i class='mdi mdi-compass-outline icon-lg text-warning'></i>
+                          <h5 class='mb-0 ml-1'>
+                            Exam Result Not Available!</h5>
+                        </div>";
+                        }
+                      ?>
                        </table>
                      </div>
                   </div>
