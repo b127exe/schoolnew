@@ -48,7 +48,7 @@ if ($res1) {
         <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo" /></a>
       </div>
-      <?php include "../component/header.php"; ?>
+      <?php include "../component/header-2.php"; ?>
     </nav>
 
     <!-- partial -->

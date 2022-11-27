@@ -39,7 +39,7 @@ $pid = $_GET['pid'];
         <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo" /></a>
       </div>
-      <?php include "../component/header.php"; ?>
+      <?php include "../component/header-2.php"; ?>
     </nav>
 
     <!-- partial -->
@@ -48,7 +48,7 @@ $pid = $_GET['pid'];
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="../images/faces/face30.png">
+            <img src="../images/faces/face32.png">
           </div>
           <div class="user-name">
             Edward Spencer
