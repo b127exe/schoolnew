@@ -34,9 +34,21 @@ else{
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/card.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <style>
+    .scrollbar::-webkit-scrollbar {
+      width: 1em;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      background-color: #999;
+    }
+  </style>
 </head>
 
 <body>
@@ -46,7 +58,7 @@ else{
         <div class="row w-100">
           <div class="col-lg-8 mx-auto">
             <div class="auth-form-transparent text-left p-5 text-center">
-              <img src="images/faces/face32.png" class="lock-profile-img" alt="img">
+              <img src="images/faces/white32.png" class="lock-profile-img" alt="img">
               <form class="form-sample pt-5" method="GET">
                 <div class="row">
                   <div class="col-md-6">
@@ -78,7 +90,7 @@ else{
             </div>  
           </div>
 
-          <div class="col-md-5 mx-auto" style="height: 500px; overflow: hidden;overflow-y: scroll;">
+          <div class="col-md-5 mx-auto scrollbar" style="height: 280px; overflow: hidden;overflow-y: scroll;">
               <div class="row">
  
               <?php

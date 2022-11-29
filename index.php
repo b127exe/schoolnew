@@ -10,8 +10,7 @@ if (isset($_GET['searchBtn'])) {
   $search = $_GET['search'];
 
   $sql = "SELECT * FROM student AS s INNER JOIN parent AS p ON s.pid = p.pid INNER JOIN class AS c ON s.cid = c.cid WHERE $list LIKE '%$search%'";
-}
-else{
+} else {
   $sql = "SELECT * FROM student AS s INNER JOIN parent AS p ON s.pid = p.pid INNER JOIN class AS c ON s.cid = c.cid";
 }
 
@@ -34,9 +33,21 @@ else{
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/card.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <style>
+    .scrollbar::-webkit-scrollbar {
+      width: 1em;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      background-color: #999;
+    }
+  </style>
 </head>
 
 <body>
@@ -46,7 +57,7 @@ else{
         <div class="row w-100">
           <div class="col-lg-8 mx-auto">
             <div class="auth-form-transparent text-left p-5 text-center">
-              <img src="images/faces/face30.png" class="lock-profile-img" alt="img">
+              <img src="images/faces/white30.png" class="lock-profile-img" alt="img">
               <form class="form-sample pt-5" method="GET">
                 <div class="row">
                   <div class="col-md-6">
@@ -75,18 +86,18 @@ else{
                   <a href="login.php" class="auth-link text-white">Sign in using a different account</a>
                 </div>
               </form>
-            </div>  
+            </div>
           </div>
 
-          <div class="col-md-5 mx-auto" style="height: 500px; overflow: hidden;overflow-y: scroll;">
-              <div class="row">
- 
+          <div class="col-md-5 mx-auto scrollbar" style="height: 280px; overflow: hidden;overflow-y: scroll;">
+            <div class="row">
+
               <?php
-              
-              $res = mysqli_query($conn,$sql);
-              if(mysqli_num_rows($res) > 0 ){
-                while($row = mysqli_fetch_assoc($res)){
-                    echo " <div class='col-sm-12 p-4 mt-2' style='border-radius: 10px;background-color: rgba(0, 0, 0, 0.5);'>
+
+              $res = mysqli_query($conn, $sql);
+              if (mysqli_num_rows($res) > 0) {
+                while ($row = mysqli_fetch_assoc($res)) {
+                  echo " <div class='col-sm-12 p-4 mt-2' style='border-radius: 10px;background-color: rgba(0, 0, 0, 0.5);'>
                     <p class='text-white'>$row[rollno]</p>
                      <h2 class='font-weight-bold text-white'>$row[fname] $row[lname]</h2>
                      <p class='text-white'>Guardian : $row[name]</p>
@@ -100,7 +111,7 @@ else{
               }
 
               ?>
-              </div>
+            </div>
           </div>
         </div>
       </div>
