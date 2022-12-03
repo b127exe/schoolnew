@@ -40,8 +40,8 @@ $row = mysqli_fetch_array($res);
 
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="#"><img src="../images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="#"><img src="../images/logo-mini.svg" alt="logo" /></a>
       </div>
       <?php include "../component/header-2.php"; ?>
     </nav>
@@ -74,7 +74,7 @@ $row = mysqli_fetch_array($res);
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='parNotice.php?pid=$pid'>
-            <i class='icon-box menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -83,7 +83,7 @@ $row = mysqli_fetch_array($res);
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='parAttend.php?pid=$pid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-check menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
             ?>
@@ -115,7 +115,7 @@ $row = mysqli_fetch_array($res);
           <li class="nav-item">
             <?php
             echo "<a class='nav-link' href='parFee.php?pid=$pid'>
-            <i class='icon-ribbon menu-icon'></i>
+            <i class='icon-paper-clip menu-icon'></i>
             <span class='menu-title'>Fees</span>
           </a>";
             ?>

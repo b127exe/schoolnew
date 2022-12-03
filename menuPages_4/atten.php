@@ -83,7 +83,7 @@ if(isset($_GET['searchStu'])){
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='teaNotice.php?tid=$tid'>
-            <i class='icon-box menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -92,7 +92,7 @@ if(isset($_GET['searchStu'])){
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='atten.php?tid=$tid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-check menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
             ?>
@@ -100,7 +100,7 @@ if(isset($_GET['searchStu'])){
           <li class="nav-item">
             <?php
             echo "<a class='nav-link' href='teaAddStu.php?tid=$tid'>
-            <i class='icon-ribbon menu-icon'></i>
+            <i class='icon-plus menu-icon'></i>
             <span class='menu-title'>Add Student</span>
           </a>";
             ?>

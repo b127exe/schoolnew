@@ -73,7 +73,7 @@ $sid = $_GET['sid'];
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='menuPages_2/yourNotice.php?sid=$sid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -83,7 +83,7 @@ $sid = $_GET['sid'];
             <?php
 
             echo " <a class='nav-link' href='menuPages_2/yourAtten.php?sid=$sid'>
-           <i class='icon-command menu-icon'></i>
+           <i class='icon-check menu-icon'></i>
            <span class='menu-title'>Attendance</span>
            </a>";
 
@@ -93,7 +93,7 @@ $sid = $_GET['sid'];
             <?php
 
             echo " <a class='nav-link' href='menuPages_2/yourSubject.php?sid=$sid'>
-          <i class='icon-command menu-icon'></i>
+          <i class='icon-paper menu-icon'></i>
           <span class='menu-title'>Subject</span>
           </a>";
 

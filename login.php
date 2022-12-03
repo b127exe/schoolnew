@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +38,7 @@
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
-              <form class="pt-3" method="POST">
+              <form class="pt-3" method="POST" method="<?php echo $_SERVER['PHP_SELF'];?>">
                 <div class="form-group">
                   <label for="exampleInputEmail">Email</label>
                   <div class="input-group">
@@ -85,7 +92,12 @@
   <?php
   
    if(isset($_POST['login'])){
-    
+     
+
+    $email = $_POST['uemail'];
+    $pass = $_POST['pass'];
+
+
    }
   
   ?>

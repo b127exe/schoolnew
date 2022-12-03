@@ -80,7 +80,7 @@ include "component/connect.php";
                   <select class="form-control form-control-lg" id="exampleFormControlSelect2" style="padding: 15px;" name="role">
                     <option value="student">Student</option>
                     <option value="parent">Parent</option>
-                    <option value="admin">Administrator</option>
+                    <option value="teacher">Teacher</option>
                   </select>
                 </div>
                 
@@ -125,24 +125,24 @@ include "component/connect.php";
 
   <?php
   
-  // if(isset($_POST['signUp'])){
+  if(isset($_POST['signUp'])){
 
-  //    $name = $_POST['uname'];
-  //    $email = $_POST['uemail'];
-  //    $pass = md5($_POST['pass']);
-  //    $role = $_POST['role'];
+     $name = $_POST['uname'];
+     $email = $_POST['uemail'];
+     $pass = md5($_POST['pass']);
+     $role = $_POST['role'];
 
-  //    $sql = "INSERT INTO user(uname,uemail,password,role) VALUES('$name','$email','$pass','$role')";
+     $sql = "INSERT INTO user(uname,uemail,password,role) VALUES('$name','$email','$pass','$role')";
 
-  //    $res = mysqli_query($conn,$sql);
+     $res = mysqli_query($conn,$sql);
 
-  //    if($res){
+     if($res){
           
-  //      echo "<script>window.location.href = 'login.php'</script>";
+       echo "<script>window.location.href = 'login.php'</script>";
 
-  //    }
+     }
 
-  // }
+  }
   
   
   ?>

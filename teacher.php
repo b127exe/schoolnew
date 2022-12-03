@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 $tid = $_GET['tid'];
 
@@ -68,7 +70,7 @@ $tid = $_GET['tid'];
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='menuPages_4/teaNotice.php?tid=$tid'>
-            <i class='icon-box menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -77,7 +79,7 @@ $tid = $_GET['tid'];
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='menuPages_4/atten.php?tid=$tid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-check menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
             ?>
@@ -85,7 +87,7 @@ $tid = $_GET['tid'];
           <li class="nav-item">
             <?php
             echo "<a class='nav-link' href='menuPages_4/teaAddStu.php?tid=$tid'>
-            <i class='icon-ribbon menu-icon'></i>
+            <i class='icon-plus menu-icon'></i>
             <span class='menu-title'>Add Student</span>
           </a>";
             ?>

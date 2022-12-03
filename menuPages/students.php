@@ -33,8 +33,8 @@ include "../component/connect.php";
 
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="../accountant.php"><img src="../images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../accountant.php"><img src="../images/logo-mini.svg" alt="logo"/></a>
       </div>
       <?php include "../component/header.php";?>
     </nav>
@@ -45,7 +45,7 @@ include "../component/connect.php";
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="../images/faces/face28.png">
+            <img src="../images/faces/face31.png">
           </div>
           <div class="user-name">
               Edward Spencer
@@ -137,26 +137,40 @@ include "../component/connect.php";
                       <thead>
                         <tr>
                           <th>Roll No</th>
-                          <th>Name</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
                           <th>Guadian</th>
                           <th>Gender</th>
-                          <th>Dob</th>
+                          <th>Class</th>
+                          <th>Section</th>
+                          <th>Subject</th>
                           <th>Email</th>
+                          <th>Update</th>
+                          <th>Remove</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                         
-                        $sql = "SELECT * FROM student AS s INNER JOIN parent AS p ON s.pid = p.pid";
+                        $sql = "SELECT * FROM student AS s INNER JOIN parent AS p ON s.pid = p.pid INNER JOIN class AS c ON s.cid = c.cid INNER JOIN section AS sec ON c.section = sec.sec_id INNER JOIN subject AS su ON s.subid = su.subid INNER JOIN fees AS f ON su.fid = f.fid INNER JOIN teacher AS t ON su.tid = t.tid";
                         $res =  mysqli_query($conn , $sql);
                         while($row = mysqli_fetch_assoc($res)){
                            echo "<tr>
                                  <td>$row[rollno]</td>
-                                 <td>$row[fname] "."$row[lname]</td>
+                                 <td>$row[fname]</td>
+                                 <td>$row[lname]</td>
                                  <td>$row[name]</td>
                                  <td>$row[sgender]</td>
-                                 <td>$row[dob]</td>
-                                 <td>$row[semail]</td>
+                                 <td>$row[cname]</td>
+                                 <td>$row[sec_name]</td>
+                                 <td>$row[subject]</td>
+                                 <td>$row[semail]</td>                                 
+                                 <td><a href='#'><button type='button' class='btn btn-inverse-warning btn-rounded btn-icon'>
+                                 <i class='mdi mdi-reload btn-icon-prepend'></i>
+                               </button></a></td>
+                               <td><a href='removeStu.php?sid=$row[sid]&pid=$row[pid]&cid=$row[cid]&secid=$row[sec_id]&subid=$row[subid]&fid=$row[fid]'><button type='button' class='btn btn-inverse-danger btn-rounded btn-icon'>
+                                 <i class='icon-cross btn-icon-prepend'></i>
+                               </button></a></td>
                                 </tr>";
                         }
                         

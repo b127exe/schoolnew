@@ -72,7 +72,7 @@ $tid = $_GET['tid'];
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='teaNotice.php?tid=$tid'>
-            <i class='icon-box menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -81,7 +81,7 @@ $tid = $_GET['tid'];
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='atten.php?tid=$tid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-check menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
             ?>
@@ -89,7 +89,7 @@ $tid = $_GET['tid'];
           <li class="nav-item">
             <?php
             echo "<a class='nav-link' href='teaAddStu.php?tid=$tid'>
-            <i class='icon-ribbon menu-icon'></i>
+            <i class='icon-plus menu-icon'></i>
             <span class='menu-title'>Add Student</span>
           </a>";
             ?>
@@ -111,133 +111,139 @@ $tid = $_GET['tid'];
         <div class="content-wrapper">
         <div class="row">
             <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="font-weight-bold text-dark text-center">Add Student</h4>
+                  <h4 class="font-weight-bold text-dark text-center">Student enroll form</h4>
                   <p class="card-description text-center">
                     Fill up the form
                   </p>
                   <form class="form-sample" method="POST">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Roll no</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="roll" />
+                    <div class="card">
+                      <div class="card-body">
+                      <h4 class="font-weight-bold text-center">Student</h4>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Roll no</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="roll" />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">First Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="fname" />
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">First Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="fname" />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                     
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Last Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="lname" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Gender</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" style="padding: 15px;" name="gender">
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
 
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Date of Birth</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dob" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Last Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="lname" />
+                              </div>
+                            </div>
                           </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Gender</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" style="padding: 15px;" name="gender">
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Date of Birth</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dob" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Student Email</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" name="semail" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Guardian Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="pname" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Contact</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" name="contact" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Occupation</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="job" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">CINC</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" name="nic" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Guardian Email</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" name="pemail" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="address" />
+                              </div>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Student Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control" name="semail" />
-                          </div>
-                        </div>
-                      </div>
-                     
                     </div>
+                    <div class="card mt-2">
+                      <div class="card-body">
+                      <h4 class="font-weight-bold text-center">Class & Subject enroll</h4>
                     <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Guardian Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="pname" />
-                          </div>
-                        </div>
-                      </div>
                       <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Contact</label>
-                          <div class="col-sm-9">
-                            <input type="number" class="form-control" name="contact" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Occupation</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="job" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">CINC</label>
-                          <div class="col-sm-9">
-                            <input type="number" class="form-control" name="nic" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Guardian Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control" name="pemail" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="address" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Class Name</label>
                           <div class="col-sm-9">
@@ -263,10 +269,10 @@ $tid = $_GET['tid'];
                           </div>
                         </div>
                       </div>
-                    
+
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Subject</label>
                           <div class="col-sm-9">
@@ -282,10 +288,10 @@ $tid = $_GET['tid'];
                           </div>
                         </div>
                       </div>
-                     
+
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Subject Teacher</label>
                           <div class="col-sm-9">
@@ -311,12 +317,13 @@ $tid = $_GET['tid'];
                             <input type="text" class="form-control" name="subFee" />
                           </div>
                         </div>
-                      </div>                     
                       </div>
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" name="insert">Insert</button>
+                    </div>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" name="insert">Insert</button>
                   </form>
-                </div>
-              </div>
+               
             </div>
           </div>
         </div>

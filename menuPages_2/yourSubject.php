@@ -76,7 +76,7 @@ $row = mysqli_fetch_array($res);
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='yourNotice.php?sid=$sid'>
-            <i class='icon-box menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -85,7 +85,7 @@ $row = mysqli_fetch_array($res);
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='yourAtten.php?sid=$sid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-check menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
             ?>
@@ -93,7 +93,7 @@ $row = mysqli_fetch_array($res);
           <li class="nav-item">
             <?php
             echo "<a class='nav-link' href='yourSubject.php?sid=$sid'>
-            <i class='icon-ribbon menu-icon'></i>
+            <i class='icon-paper menu-icon'></i>
             <span class='menu-title'>Subject</span>
           </a>";
             ?>
@@ -138,9 +138,9 @@ $row = mysqli_fetch_array($res);
 
                       <p style='font-size: 16px;'><span class="text-warning font-weight-bold">Subject Teacher: </span><?php echo $row['t_fname'] ." ". $row['t_lname'];?></p>
 
-                      <strong style='line-height: 25px;'><span class='text-primary'>Subject Details: </span><?php echo $row['detail'];?></strong>
+                      <strong style='line-height: 25px;'><span class='text-warning'>Subject Details: </span><?php echo $row['detail'];?></strong>
 
-                      <p class="mt-2"><span class='font-weight-bold text-primary'>Education Details:</span> Education is a purposeful activity directed at achieving certain aims, such as transmitting knowledge or fostering skills and character traits. These aims may include the development of understanding, rationality, kindness, and honesty. Various researchers emphasize the role of critical thinking in order to distinguish education from indoctrination. Some theorists require that education results in an improvement of the student while others prefer a value-neutral definition of the term. In a slightly different sense, education may also refer, not to the process, but to the product of this process: the mental states and dispositions possessed by educated people. Education originated as the transmission of cultural heritage from one generation to the next. Today, educational goals increasingly encompass new ideas such as the liberation of learners, skills needed for modern society, empathy, and complex vocational skills.</p>
+                      <p class="mt-2"><span class='font-weight-bold text-warning'>Education Details:</span> Education is a purposeful activity directed at achieving certain aims, such as transmitting knowledge or fostering skills and character traits. These aims may include the development of understanding, rationality, kindness, and honesty. Various researchers emphasize the role of critical thinking in order to distinguish education from indoctrination. Some theorists require that education results in an improvement of the student while others prefer a value-neutral definition of the term. In a slightly different sense, education may also refer, not to the process, but to the product of this process: the mental states and dispositions possessed by educated people. Education originated as the transmission of cultural heritage from one generation to the next. Today, educational goals increasingly encompass new ideas such as the liberation of learners, skills needed for modern society, empathy, and complex vocational skills.</p>
 
                     </div>
                     <div class='col-lg-6'>

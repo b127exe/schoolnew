@@ -34,8 +34,8 @@ include "../component/connect.php";
 
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="../accountant.php"><img src="../images/logo.svg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="../accountant.php"><img src="../images/logo-mini.svg" alt="logo" /></a>
       </div>
       <?php include "../component/header.php"; ?>
     </nav>
@@ -46,7 +46,7 @@ include "../component/connect.php";
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="../images/faces/face28.png">
+            <img src="../images/faces/face31.png">
           </div>
           <div class="user-name">
             Edward Spencer
@@ -128,133 +128,139 @@ include "../component/connect.php";
         <div class="content-wrapper">
           <div class="row">
             <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="font-weight-bold text-dark text-center">Add Student</h4>
+                  <h4 class="font-weight-bold text-dark text-center">Student enroll form</h4>
                   <p class="card-description text-center">
                     Fill up the form
                   </p>
                   <form class="form-sample" method="POST">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Roll no</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="roll" />
+                    <div class="card">
+                      <div class="card-body">
+                      <h4 class="font-weight-bold text-center">Student</h4>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Roll no</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="roll" />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">First Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="fname" />
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">First Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="fname" />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                     
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Last Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="lname" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Gender</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" style="padding: 15px;" name="gender">
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
 
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Date of Birth</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dob" />
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Last Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="lname" />
+                              </div>
+                            </div>
                           </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Gender</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" style="padding: 15px;" name="gender">
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Date of Birth</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="yyyy-mm-dd" name="dob" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Student Email</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" name="semail" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Guardian Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="pname" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Contact</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" name="contact" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Occupation</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="job" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">CINC</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" name="nic" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Guardian Email</label>
+                              <div class="col-sm-9">
+                                <input type="email" class="form-control" name="pemail" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Address</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" name="address" />
+                              </div>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Student Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control" name="semail" />
-                          </div>
-                        </div>
-                      </div>
-                     
                     </div>
+                    <div class="card mt-2">
+                      <div class="card-body">
+                      <h4 class="font-weight-bold text-center">Class & Subject enroll</h4>
                     <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Guardian Name</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="pname" />
-                          </div>
-                        </div>
-                      </div>
                       <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Contact</label>
-                          <div class="col-sm-9">
-                            <input type="number" class="form-control" name="contact" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Occupation</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="job" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">CINC</label>
-                          <div class="col-sm-9">
-                            <input type="number" class="form-control" name="nic" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Guardian Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control" name="pemail" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Address</label>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" name="address" />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Class Name</label>
                           <div class="col-sm-9">
@@ -280,10 +286,10 @@ include "../component/connect.php";
                           </div>
                         </div>
                       </div>
-                    
+
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Subject</label>
                           <div class="col-sm-9">
@@ -299,10 +305,10 @@ include "../component/connect.php";
                           </div>
                         </div>
                       </div>
-                     
+
                     </div>
                     <div class="row">
-                    <div class="col-md-6">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Subject Teacher</label>
                           <div class="col-sm-9">
@@ -328,12 +334,13 @@ include "../component/connect.php";
                             <input type="text" class="form-control" name="subFee" />
                           </div>
                         </div>
-                      </div>                     
                       </div>
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" name="insert">Insert</button>
+                    </div>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" name="insert">Insert</button>
                   </form>
-                </div>
-              </div>
+               
             </div>
           </div>
 
@@ -369,104 +376,98 @@ include "../component/connect.php";
   <script src="../js/dashboard.js"></script>
   <!-- End custom js for this page-->
 
-   <!-- Php Start Here ! -->
+  <!-- Php Start Here ! -->
 
-   <?php
-   
-     if(isset($_POST['insert'])){
+  <?php
 
-       //For Student
+  if (isset($_POST['insert'])) {
 
-       $roll = $_POST['roll'];
-       $fname = $_POST['fname'];
-       $lname = $_POST['lname'];
-       $gender = $_POST['gender'];
-       $dob = $_POST['dob'];
-       $email = $_POST['semail'];
-       $address = $_POST['address'];
+    //For Student
 
-       //For Parent
+    $roll = $_POST['roll'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $email = $_POST['semail'];
+    $address = $_POST['address'];
 
-      $pname = $_POST['pname'];
-      $phone = $_POST['contact'];
-      $job = $_POST['job'];
-      $nic =  $_POST['nic'];
-      $pemail = $_POST['pemail'];
+    //For Parent
 
-      // For Class & Section
+    $pname = $_POST['pname'];
+    $phone = $_POST['contact'];
+    $job = $_POST['job'];
+    $nic =  $_POST['nic'];
+    $pemail = $_POST['pemail'];
 
-      $cname = $_POST['cname'];
-      $section = $_POST['section'];
+    // For Class & Section
 
-      // For Subject 
+    $cname = $_POST['cname'];
+    $section = $_POST['section'];
 
-      $subject = $_POST['subject'];
-      $subdetail = $_POST['subdetail'];
-      $subTeacher = $_POST['subTeacher'];
+    // For Subject 
 
-      // For Fees
-      
-      $subFee = $_POST['subFee'];
+    $subject = $_POST['subject'];
+    $subdetail = $_POST['subdetail'];
+    $subTeacher = $_POST['subTeacher'];
 
-      $sql2 = "INSERT INTO parent(name,phone,job,nic,email) VALUES('$pname',$phone,'$job',$nic,'$pemail')";
+    // For Fees
 
-      $res2 = mysqli_query($conn , $sql2);
+    $subFee = $_POST['subFee'];
 
-      if($res2){
+    $sql2 = "INSERT INTO parent(name,phone,job,nic,email) VALUES('$pname',$phone,'$job',$nic,'$pemail')";
 
-       $maxpid = "SELECT MAX(pid) AS p FROM parent";
-       $pidres = mysqli_query($conn , $maxpid);
-       $pidrow = mysqli_fetch_array($pidres);
+    $res2 = mysqli_query($conn, $sql2);
+
+    if ($res2) {
+
+      $maxpid = "SELECT MAX(pid) AS p FROM parent";
+      $pidres = mysqli_query($conn, $maxpid);
+      $pidrow = mysqli_fetch_array($pidres);
       //  echo $pidrow['p'] . '<br>';
-       
-       $sql3 = "INSERT INTO class(cname,section) VALUES('$cname',$section)";
-       $res3 = mysqli_query($conn , $sql3);
 
-       if($res3){
+      $sql3 = "INSERT INTO class(cname,section) VALUES('$cname',$section)";
+      $res3 = mysqli_query($conn, $sql3);
+
+      if ($res3) {
 
         $maxcid = "SELECT MAX(cid) AS c FROM class";
-        $cidres = mysqli_query($conn , $maxcid);
+        $cidres = mysqli_query($conn, $maxcid);
         $cidrow = mysqli_fetch_array($cidres);
         // echo $cidrow['c'] . "<br>";
 
-         $sql4 = "INSERT INTO fees(amount) VALUES($subFee)"; 
-         $res4 = mysqli_query($conn,$sql4); 
+        $sql4 = "INSERT INTO fees(amount) VALUES($subFee)";
+        $res4 = mysqli_query($conn, $sql4);
 
-         $maxfid = "SELECT MAX(fid) AS f FROM fees";
-         $fidres = mysqli_query($conn,$maxfid);
-         $fidrow = mysqli_fetch_array($fidres);
+        $maxfid = "SELECT MAX(fid) AS f FROM fees";
+        $fidres = mysqli_query($conn, $maxfid);
+        $fidrow = mysqli_fetch_array($fidres);
         //  echo $fidrow['f'] . "<br>";
 
-         if($res4){
-           
-           $sql5 = "INSERT INTO subject(subject,detail,tid,fid) VALUES('$subject','$subdetail',$subTeacher,{$fidrow['f']})";
+        if ($res4) {
 
-           $res5 = mysqli_query($conn , $sql5);
+          $sql5 = "INSERT INTO subject(subject,detail,tid,fid) VALUES('$subject','$subdetail',$subTeacher,{$fidrow['f']})";
 
-           if($res5){
+          $res5 = mysqli_query($conn, $sql5);
+
+          if ($res5) {
 
             $maxsubid = "SELECT MAX(subid) AS sb FROM subject";
-            $subidres = mysqli_query($conn,$maxsubid);
+            $subidres = mysqli_query($conn, $maxsubid);
             $subidrow = mysqli_fetch_array($subidres);
             // echo $subidrow['sb'];
 
-            $sql6 = "INSERT INTO student(fname,lname,dob,address,pid,sgender,cid,semail,subid,rollno) VALUES('$fname','$lname','$dob','$address',{$pidrow['p']},'$gender',{$cidrow['c']},'$email',{$subidrow['sb']},'Student". "$roll')";
+            $sql6 = "INSERT INTO student(fname,lname,dob,address,pid,sgender,cid,semail,subid,rollno) VALUES('$fname','$lname','$dob','$address',{$pidrow['p']},'$gender',{$cidrow['c']},'$email',{$subidrow['sb']},'Student" . "$roll')";
 
-            $res6 = mysqli_query($conn,$sql6) or die("Error");
-
-           }
-
-         }
-       }
-
-
-
+            $res6 = mysqli_query($conn, $sql6) or die("Error");
+          }
+        }
       }
+    }
+  }
 
-     }
-   
-   
-   ?>
+
+  ?>
 
 
 </body>

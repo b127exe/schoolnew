@@ -87,7 +87,7 @@ $res = mysqli_query($conn, $sql);
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='yourNotice.php?sid=$sid'>
-            <i class='icon-box menu-icon'></i>
+            <i class='icon-clipboard menu-icon'></i>
             <span class='menu-title'>Notice</span>
           </a>";
             ?>
@@ -96,7 +96,7 @@ $res = mysqli_query($conn, $sql);
           <li class="nav-item">
             <?php
             echo " <a class='nav-link' href='yourAtten.php?sid=$sid'>
-            <i class='icon-plus menu-icon'></i>
+            <i class='icon-check menu-icon'></i>
             <span class='menu-title'>Attendance</span>
           </a>";
             ?>
@@ -104,7 +104,7 @@ $res = mysqli_query($conn, $sql);
           <li class="nav-item">
             <?php
             echo "<a class='nav-link' href='yourSubject.php?sid=$sid'>
-            <i class='icon-ribbon menu-icon'></i>
+            <i class='icon-paper menu-icon'></i>
             <span class='menu-title'>Subject</span>
           </a>";
             ?>

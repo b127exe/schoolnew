@@ -45,8 +45,8 @@ else{
 
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/student.php"><img src="../images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="/student.php"><img src="../images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="../accountant.php"><img src="../images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="../accountant.php"><img src="../images/logo-mini.svg" alt="logo"/></a>
       </div>
       <?php include "../component/header.php";?>
     </nav>
@@ -57,7 +57,7 @@ else{
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="user-profile">
           <div class="user-image">
-            <img src="../images/faces/face28.png">
+            <img src="../images/faces/face31.png">
           </div>
           <div class="user-name">
               Edward Spencer

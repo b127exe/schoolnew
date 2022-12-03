@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2022 at 09:30 AM
+-- Generation Time: Dec 03, 2022 at 10:12 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -54,7 +54,10 @@ INSERT INTO `attendance` (`aid`, `sid`, `status`, `date`) VALUES
 (13, 2, 'present', '2022-11-19'),
 (14, 4, 'present', '2022-11-26'),
 (15, 4, 'absent', '2022-11-25'),
-(16, 2, 'present', '2022-11-26');
+(16, 2, 'present', '2022-11-26'),
+(17, 6, 'present', '2022-12-02'),
+(18, 6, 'absent', '2022-12-01'),
+(19, 5, 'leave', '2022-12-01');
 
 -- --------------------------------------------------------
 
@@ -78,7 +81,8 @@ INSERT INTO `class` (`cid`, `cname`, `section`) VALUES
 (3, 'Class 10', 2),
 (4, 'Class 10', 2),
 (5, 'Class 11', 1),
-(6, 'Class 10', 2);
+(6, 'Class 10', 2),
+(7, 'Class 11', 3);
 
 -- --------------------------------------------------------
 
@@ -146,7 +150,8 @@ INSERT INTO `fees` (`fid`, `amount`) VALUES
 (8, 5500),
 (9, 5600),
 (10, 3400),
-(11, 5600);
+(11, 5600),
+(12, 5500);
 
 -- --------------------------------------------------------
 
@@ -169,7 +174,6 @@ CREATE TABLE `notice` (
 
 INSERT INTO `notice` (`nid`, `nauthor`, `ntitle`, `ndesc`, `time`, `audiance`) VALUES
 (3, 'Bilal Khan', 'Result Announment Ceremony', 'Tommorrow is your result annoucment ceremony so please come along with your parent', '2022-11-18 18:38:24', 'student'),
-(4, 'Ammar Sheikh', 'Winter Vacation', 'School will remain close till 30 Nov!!', '2022-11-18 18:39:44', 'both'),
 (5, 'Bilal Khan', 'Vacation', 'School will remain open for teacher on half summer vacation.....', '2022-11-18 18:50:51', 'teacher');
 
 -- --------------------------------------------------------
@@ -197,7 +201,8 @@ INSERT INTO `parent` (`pid`, `name`, `phone`, `job`, `nic`, `email`) VALUES
 (4, 'Mazhar', '03456672892', 'Sublime Architecturist', '1620293252954', 'mazhar432@gmail.com'),
 (5, 'zahid', '03457738292', 'Office Work', '1620293252934', 'zahid123@gmail.com'),
 (6, 'Raees ahmed', '03453358365', 'Sublime Architecturist', '1620293252933', 'raees456@gmail.com'),
-(7, 'Ata-ur-rehman', '3564478292', 'Sublime Architecturist', '1620293252966', 'rehman345@gmail.com');
+(7, 'Ata-ur-rehman', '3564478292', 'Sublime Architecturist', '1620293252966', 'rehman345@gmail.com'),
+(8, 'Aleem Ahmed', '3467738292', 'Bank Al habib (Credit analyst)', '7820293254577', 'aleem678@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -249,7 +254,8 @@ INSERT INTO `student` (`sid`, `fname`, `lname`, `dob`, `address`, `pid`, `sgende
 (3, 'Ammar', 'Sheikh', '2004-06-22', 'Hno T-567 Street 01 korangi 3/1', 4, 'Male', 3, 'ammar543@gmail.com', 4, 'Student1345356'),
 (4, 'Ahmed', 'Khan', '2005-06-20', 'Hno Y-392 Street 04', 5, 'Male', 4, 'ahmed123@gmail.com', 5, 'Student1338466'),
 (5, 'Azhar', 'Rumaan', '0000-00-00', 'Hno N-392 Street 90', 6, 'Male', 5, 'azhar123@gmail.com', 6, 'Student1338466'),
-(6, 'Malik', 'Saif', '2004-12-04', 'Hno N-378 Street 10', 7, 'Male', 6, 'malik345@gmail.com', 7, 'Student1345775');
+(6, 'Malik', 'Saif', '2004-12-04', 'Hno N-378 Street 10', 7, 'Male', 6, 'malik345@gmail.com', 7, 'Student1345775'),
+(7, 'Maaz', 'Khan', '2004-04-22', 'Hno Y-550 Street 10', 8, 'Male', 7, 'maaz123@gmail.com', 8, 'Student1355805');
 
 -- --------------------------------------------------------
 
@@ -275,7 +281,8 @@ INSERT INTO `subject` (`subid`, `subject`, `detail`, `tid`, `fid`) VALUES
 (4, 'Computer Science (Python)', 'Fundamental areas of computer science Python is th', 10, 8),
 (5, 'Chemistry', 'Fundamental areas of biology is the study of exper', 10, 9),
 (6, 'Biology', 'Fundamental areas of biology is the study of exper', 3, 10),
-(7, 'Chemistry', 'Fundamental areas of Chemistry is the study of experiment.', 8, 11);
+(7, 'Chemistry', 'Fundamental areas of Chemistry is the study of experiment.', 8, 11),
+(8, 'Computer Science', 'Fundamental areas of computer science Computer science is the study of computation.', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -393,13 +400,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `exam`
@@ -417,7 +424,7 @@ ALTER TABLE `exam_result`
 -- AUTO_INCREMENT for table `fees`
 --
 ALTER TABLE `fees`
-  MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `notice`
@@ -429,7 +436,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `parent`
 --
 ALTER TABLE `parent`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `section`
@@ -441,13 +448,13 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teacher`
