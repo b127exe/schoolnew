@@ -91,14 +91,16 @@ session_start();
 
   <?php
   
-   if(isset($_POST['login'])){
+  //  if(isset($_POST['login'])){
      
 
-    $email = $_POST['uemail'];
-    $pass = $_POST['pass'];
+  //   $email = $_POST['uemail'];
+  //   $pass = $_POST['pass'];
+
+    
 
 
-   }
+  //  }
   
   ?>
 </body>
